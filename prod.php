@@ -62,8 +62,6 @@ function generate_vars_start($page_name)
 <?php
 require_once __DIR__ . '$PHP/orm.config.php';
 
-\$unset_session_prop = function (\$prop) { unset(\$_SESSION[\$prop]); };
-
 \$global = [];
 $vars_string
 ?>

@@ -9,7 +9,6 @@ use JsPhpize\JsPhpizePhug;
 
 include_once __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/php/ORM.php';
-require_once __DIR__ . '/php/unset-session.php';
 
 require_once './php/orm.config.php';
 $orm->table_prefix = 'jf-cms_';
@@ -27,7 +26,6 @@ $variables = [
    'php' => $PHP,
    'attach' => $ATTACH,
    'root' => $ROOT,
-   'unset_session_prop' => $unset_session_prop,
    'mode' => 'dev',
 ];
 $options = [
