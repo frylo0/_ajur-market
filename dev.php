@@ -11,15 +11,15 @@ include_once __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/php/ORM.php';
 
 require_once './php/orm.config.php';
-$orm->table_prefix = 'jf-cms_';
-$orm->is_log = true;
+//$orm->table_prefix = 'jf-cms_';
+//$orm->is_log = true;
 
 Phug::addExtension(JsPhpizePhug::class);
 $page_name = isset($_GET['page']) ? $_GET['page'] : 'login';
 $variables = [
    'link' => "./src/Pages/{$page_name}/dist/{$page_name}",
    'ver' => "$VER",
-   'orm' => $orm,
+   //'orm' => $orm,
    '$_POST' => $_POST,
    '$_GET' => $_GET,
    '$_COOKIE' => $_COOKIE,

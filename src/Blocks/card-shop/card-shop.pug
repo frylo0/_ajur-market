@@ -1,5 +1,7 @@
 mixin card-shop(title, imgSrc, href='#')
-   <?php global $glo; ?>
+   if mode != 'dev'
+      <?php global $glo; ?>
+      - null
    - var attach = glo['attach']
    a(href=href).card-shop&attributes(attributes).col.mro5.mbo5.aic
       .card-shop__image.p1

@@ -1,6 +1,8 @@
 mixin header()
    .header.row.jcsb.p1o25&attributes(attributes)
-      <?php global $glo; ?>
+      if mode != 'dev'
+         <?php global $glo; ?>
+         - null
       - var attach = glo['attach']
       +logo('full')
       .row.aic

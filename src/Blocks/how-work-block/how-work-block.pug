@@ -1,5 +1,7 @@
 mixin how-work-block(title, imageSrc)
-   <?php global $glo; ?>
+   if mode != 'dev'
+      <?php global $glo; ?>
+      - null
    - var attach = glo['attach']
    .how-work-block.tac.mb2&attributes(attributes)
       .how-work-block__image.w100(style=`background-image: url('${attach}/Images/HowWeWork/${imageSrc}')`)
