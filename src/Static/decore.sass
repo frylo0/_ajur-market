@@ -1,21 +1,27 @@
 // <Shadows>
-$-sh-down-small: 0 3px 7px #00000030
-$-sh-down-middle: 0 5px 8px #00000030
-$-sh-down-large: 0 7px 10px #00000030
+$-sh-y-s: 0 3px 7px #00000030 // shadow y (horizontal) small
+$-sh-y-m: 0 5px 8px #00000030 // -|- middle
+$-sh-y-l: 0 7px 10px #00000030 // -|- large
+$-sh-t: 2px 2px 0 $-c4-25 // shadow text
 
-.shadow
-  &_down_small
-    box-shadow: $-sh-down-small
-  &_down_middle
-    box-shadow: $-sh-down-middle
-  &_down_large
-    box-shadow: $-sh-down-large
+.sh
+  &_y_s
+    box-shadow: $-sh-y-s
+  &_y_m
+    box-shadow: $-sh-y-m
+  &_y_l
+    box-shadow: $-sh-y-l
 // </Shadows>
 
 // <Gradients>
+$-grd_c1_trp_y: linear-gradient($-c1, transparent)
+$-grd_c1_trp_x: linear-gradient(to right, $-c1, transparent)
+$-grd_c2-50_c3_y: linear-gradient($-c2-50, $-c3)
 .grd
-  &_c1-trp_y
-    background: linear-gradient($-c1, transparent)
-  &_c1-trp_x
-    background: linear-gradient(to right, $-c1, transparent)
+  &_c1_trp_y
+    background: $-grd_c1_trp_y
+  &_c1_trp_x
+    background: $-grd_c1_trp_x
+  &_c2-50_c3_y
+    background: $-grd_c2-50_c3_y
 // </Gradients>

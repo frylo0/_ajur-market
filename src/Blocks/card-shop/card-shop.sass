@@ -1,0 +1,24 @@
+.card-shop
+   color: $-c5
+   text-decoration: none
+
+   $size: to_em(132px)
+   width: $size
+   width: calc(50% - 0.5em)
+
+   transform: scale(0.9)
+   opacity: 0
+
+   &__image
+      height: $size
+      border: 1px solid $-c1
+      width: 100%
+      height: $size
+      border-radius: to_em(5px)
+      div
+         background: no-repeat center/contain
+   &__title
+      font-size: to_em(12px)
+      text-shadow: $-sh-t
+      margin-top: -0.75em
+      background: linear-gradient(to right, transparent, $-c0 0.5em, $-c0 calc(100% - 0.5em), transparent)

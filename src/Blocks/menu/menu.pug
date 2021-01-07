@@ -1,0 +1,19 @@
+mixin menu()
+   .menu.abs.sh_y_s.p1o25.jcsb.col.dn.menu_closed&attributes(attributes)
+      .col
+         .row.jcsb.aic
+            span.menu__title Меню
+            .menu__close-button
+         .col.mt1
+            each mi in ['Главная', 'Магазины', 'Товары', 'О нас', 'Документы']
+               a(href="#").menu__item.fzo75.ff-nn-l.mt1= mi
+      .menu__footer.col.jcsb.fzo75
+         .row.jcsb.aic.mbo5
+            +logo('full')
+            .col.aife
+               a(href="tel:+79780000000").tdn.menu__tel +7 (978) 000-00-00
+               a(href="mailto:email@email.email").tdn.menu__email email@email.email
+         .row.wrap.jcc.menu__links
+            a(href="#") Данные регистрации юр. лица
+            a(href="#") Документы
+            a(href='#') Права на деятельность

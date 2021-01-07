@@ -1,18 +1,21 @@
 // <Colors>
 // Naming: $-c-{color-name}
 
+$-c0: #FCFCFC
 $-c1: #E5E5E5
 $-c2: #FAD958
 $-c3: #E6A503
 $-c4: #B87A00
 $-c5: #000000
 
+$-c0-25: transparentize($-c0, 0.75)
 $-c1-25: transparentize($-c1, 0.75)
 $-c2-25: transparentize($-c2, 0.75)
 $-c3-25: transparentize($-c3, 0.75)
 $-c4-25: transparentize($-c4, 0.75)
 $-c5-25: transparentize($-c5, 0.75)
 
+$-c0-50: transparentize($-c0, 0.50)
 $-c1-50: transparentize($-c1, 0.50)
 $-c2-50: transparentize($-c2, 0.50)
 $-c3-50: transparentize($-c3, 0.50)
@@ -20,6 +23,7 @@ $-c4-50: transparentize($-c4, 0.50)
 $-c5-50: transparentize($-c5, 0.50)
 
 \:root
+   --c0: #{$-c0}
    --c1: #{$-c1}
    --c2: #{$-c2}
    --c3: #{$-c3}

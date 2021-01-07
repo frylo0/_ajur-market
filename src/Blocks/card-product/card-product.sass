@@ -1,0 +1,42 @@
+.card-product
+   $image-width: to_em(84px)
+   $brad-size: to_em(5px)
+   margin-bottom: 0.75em
+
+   &__image
+      width: $image-width
+      background: no-repeat center/cover
+      border-radius: $brad-size 0 0 $brad-size
+      &::after
+         content: ''
+         display: block
+         position: absolute
+         top: 0
+         width: to_em(3px)
+         right: 0
+         height: 100%
+         background: $-c2
+   &__main-part
+      width: calc(100% - #{$image-width})
+      padding-left: to_em(7px)
+      border-top: 1px solid
+      border-image-source: linear-gradient(to right, $-c1, transparent)
+      border-image-slice: 1
+   &__title
+      font-size: to_em(12px)
+      margin-bottom: 0.25rem
+   &__price
+      font-size: to_em(12px)
+      float: right
+      margin-top: 0.3em
+      margin-left: 0.5em
+      color: $-c5-25
+   &__content
+      font-size: to_em(10px)
+      font-family: var(--f-nn-l)
+   &__more-button
+      margin-top: 0.25rem
+      font-size: to_em(12px)
+      font-family: var(--f-nn-l)
+      color: $-c5
+      text-shadow: $-sh-t

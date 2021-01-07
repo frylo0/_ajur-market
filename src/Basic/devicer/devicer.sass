@@ -1,0 +1,33 @@
+.devicer
+   $max-width: 425px
+   $max-height: 850px
+
+   width: 100%
+   height: calc(100vh - 3em)
+   max-width: $max-width
+   max-height: $max-height
+   overflow: auto
+   background: $-c0
+   //border-radius: 0.5em
+   box-shadow: $-sh-y-s
+
+   
+   @media screen and (max-width: $max-width) 
+      margin-top: 0
+      margin-bottom: 0
+      height: calc(100vh)
+      // chrome
+      @media (-webkit-min-device-pixel-ratio: 0)
+         height: calc(100vh - 60px)
+
+   &::-webkit-scrollbar
+      width: 8px
+      height: 8px
+ 
+   &::-webkit-scrollbar-track
+      background: #ddd
+      
+   
+   &::-webkit-scrollbar-thumb
+      border-radius: 10px
+      background: linear-gradient($-c4, $-c5)

@@ -1,0 +1,9 @@
+mixin header()
+   .header.row.jcsb.p1o25&attributes(attributes)
+      +logo('full')
+      .row.aic
+         .rel.mro75.header__cart-wrapper
+            img(src=`${attach}/Images/bag.svg`, draggable="false").header__cart-button
+            #cart-items-count.abs.usn.row.aic
+               | 1
+         img(src=`${attach}/Images/burger.svg`, draggable="false").header__burger-button

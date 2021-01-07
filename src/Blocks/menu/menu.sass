@@ -1,0 +1,76 @@
+.menu
+   background: transparentize($-c0, 0.1)
+   backdrop-filter: blur(7px)
+   z-index: 20
+   top: 1.25em
+   bottom: 1.25em
+   left: 1.25em
+   right: 1.25em
+   border-radius: to_em(5px)
+   transform: translateY(-120%)
+   transition: transform 0.5s ease, opacity 0.5s linear
+   opacity: 0
+
+   &_opened
+      transform: translateY(0%)
+      opacity: 1
+   &_closed
+      transform: translateY(120%)
+      opacity: 0
+
+   &__close-button
+      position: relative
+      width: 1.25em
+      height: 1.25em
+      cursor: pointer
+      &::before
+         position: absolute
+         left: 0
+         top: 0
+         content: ''
+         display: block
+         width: 139%
+         height: 0px
+         transform: rotate(45deg)
+         transform-origin: 0% 50%
+         border: 1px solid $-c5
+      &::after
+         position: absolute
+         right: 0
+         top: 0
+         content: ''
+         display: block
+         width: 139%
+         height: 0px
+         transform: rotate(-45deg)
+         transform-origin: 100% 50%
+         border: 1px solid $-c5
+
+   &__title
+      font-size: 1.5em
+      text-decoration: underline
+      text-decoration-color: $-c2
+
+   &__item
+      color: $-c5
+      text-decoration: none
+      transform: translate(10px)
+
+   &__footer
+      a
+         color: $-c5
+         font-size: 0.75em
+         font-family: var(--f-nn-r)
+         font-weight: bold
+   .menu__links
+      font-size: 0.75em
+      a
+         color: $-c5
+         text-decoration-color: $-c3
+         margin-right: 1em
+         font-weight: normal
+         &:last-of-type
+            margin-right: 0
+
+   .logo
+      width: 9em

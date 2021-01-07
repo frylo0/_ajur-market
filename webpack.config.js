@@ -13,6 +13,24 @@ console.log(`MODE: ${mode}\n`);
 
 const config = {
    entry: entries, //entry points of project
+   resolve: {
+      fallback: { // webpack 5 util errors fix
+         util: require.resolve("util/"),
+         path: require.resolve("path-browserify"),
+         crypto: require.resolve("crypto-browserify"),
+         buffer: require.resolve("buffer/"),
+         https: require.resolve("https-browserify"),
+
+         "assert": require.resolve("assert/"),
+         "stream": require.resolve("stream-browserify"),
+         "url": require.resolve("url/"),
+         "http": require.resolve("stream-http"),
+
+         "vm": require.resolve("vm-browserify"),
+         "os": require.resolve("os-browserify/browser"),
+         "constants": require.resolve("constants-browserify"),
+      },
+   },
    output: {
       filename: (pathData, assetInfo) => {
          //console.log('path data:', pathData);
@@ -102,7 +120,7 @@ const config = {
             ]
          },
          {
-            test: /\.(png|jpe?g|gif|ttf|svg)$/,
+            test: /\.(png|jpe?g|gif|ttf|svg|webp)$/,
             use: [
                {
                   loader: 'file-loader',

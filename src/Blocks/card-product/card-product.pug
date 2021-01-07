@@ -1,0 +1,12 @@
+mixin card-product(title, imageSrc, price, href='#')
+   .card-product.row&attributes(attributes)
+      .card-product__image.rel(style=`background-image: url('${attach}/Images/Products/${imageSrc}')`)
+      .card-product__main-part.col.pto5.pbo25
+         .card-product__title
+            .card-product__price= price
+            = title
+         .card-product__content
+            if block
+               block
+         a(href=href).card-product__more-button.tdn К товару
+      

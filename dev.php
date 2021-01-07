@@ -1,6 +1,6 @@
 <?php
 
-$VER = '0.0';
+$VER = '0.1';
 $ATTACH = './src/Attach';
 $PHP = './php';
 $ROOT = './src/Root';

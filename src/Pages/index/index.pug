@@ -1,5 +1,9 @@
 include ../../bundle.pug
 
+include ../../Blocks/card-product/card-product.pug
+include ../../Blocks/card-shop/card-shop.pug
+include ../../Blocks/how-work-block/how-work-block.pug
+
 <!DOCTYPE html>
 html(lang="en")
    head
@@ -9,6 +13,47 @@ html(lang="en")
       title Title
       link(rel="stylesheet" href=`${link}.css?ver=${ver}`)
    body
-      | Hello, World!
+      +devicer().rel
+         +menu()
+         +header()
+         +search()
+         section
+            .row.wrap.p1o25.pro75.pbo5
+               +card-shop('PUMA', 'puma.jpg')
+               +card-shop('AliExpress', 'aliexpress.png')
+               +card-shop('NIKE', 'nike.png')
+               +card-shop('adidas', 'adidas.png')
+               +card-shop('Tommy Hilfiger', 'tommy-hilfiger.png')
+               +card-shop('LEVI\'S', 'levis.png')
+            .row.jcc
+               +button('closing')
+                  | Ещё магазины
+         section.plr1o25
+            .title Популярные товары
+            +card-product('Nike Air Max 270 Men\'s or Women\'s', 'nike.jpg', '120,00 £')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+            +card-product('Adidas Originals FYW 98 EG5196', 'adidas.webp', '2 271,00 UAH')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+            +card-product('Levi’s Кофта с капюшоном из трикотажа', 'levis.webp', '1 399,00 UAH')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+            +card-product('Durex штука 32 презерватив эталон мужчина', 'durex.jpg', '12.92 $')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+            +card-product('Темнокожий прохожий', 'barak.jpg', '120 000,00 $')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis ipsum dolor
+            .row.jcc.mt1
+               +button('closing')
+                  | Ещё товары
+         section
+            .title Как мы работаем?
+            +how-work-block('Оригинальная продукция', 'brands.jpg')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            +how-work-block('Быстрая доставка', 'fast.jpg')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            +how-work-block('Поможем с вопросами', 'support.jpg')
+               | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
+         +footer()
 
    script(src=`${link}.bundle.js`)

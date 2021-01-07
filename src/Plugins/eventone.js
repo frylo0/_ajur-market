@@ -1,51 +1,53 @@
+
 const __EVENTONE__ = {};
+//__EVENTONE__ = {
+//  action1: [ // actions
+//    [-1, (...args) => {}], // reactors
+//    [0, (...args) => {}],
+//    ...
+//  ],
+//  ...
+//};
+let __EVENTONE__IS_LOG__ = true;
 
 function action(label, inPlaceCallback) {
-  return function (...args) {
-    let reactors;
-    if (__EVENTONE__[label]) // giving shorten name
-      reactors = __EVENTONE__[label];
+   if (inPlaceCallback)
+      when(label, inPlaceCallback);
 
-    if (reactors) {
-      // reactors before main reactor
-      if (Array.isArray(reactors.before) && reactors.before.length > 0)
-        reactors.before.forEach(([, reactor]) => reactor(...args));
-      // main reactor with 0 callPlace
-      if (inPlaceCallback)
-        inPlaceCallback(...args);
-      // reactors after main reactor
-      if (Array.isArray(reactors.after) && reactors.after.length > 0)
-        reactors.after.forEach(([, reactor]) => reactor(...args));
-
-    } else if (inPlaceCallback) {
-      inPlaceCallback(...args); //just main reactor call
-    }
-  };
+   return function (...args) {
+      if (__EVENTONE__[label]) // giving shorten name
+         __EVENTONE__[label].forEach(async ([, reactor]) => reactor(...args));
+      else if (window.__EVENTONE__IS_LOG__) console.warn(`EVENTONE: Calling action of not defined label (${label})`);
+   };
 }
 
 function when(actionLabel, reactor, callPlace = 0) {
-  if (typeof actionLabel == 'string') {
-    whenLogic(actionLabel);
-  } else if (Array.isArray(actionLabel)) {
-    for (let singleActionLabel of actionLabel) {
-      whenLogic(singleActionLabel);
-    }
-  }
+   if (typeof actionLabel == 'string') {
+      whenLogic(actionLabel);
+   } else if (Array.isArray(actionLabel)) {
+      for (let singleActionLabel of actionLabel)
+         whenLogic(singleActionLabel);
+   } else {
+      console.warn('EVENTONE: Unrecognized type of when type, try string or array of strings');
+   }
 
-  function whenLogic(actionLabel) {
-    let placeDimension = callPlace < 0 ? 'before' : 'after';
-    if (!__EVENTONE__[actionLabel]) // check actionLabel exist
-      __EVENTONE__[actionLabel] = {}; // create if not
-    if (!Array.isArray(__EVENTONE__[actionLabel][placeDimension])) // check dimension is Array
-      __EVENTONE__[actionLabel][placeDimension] = []; // create if not
+   function whenLogic(actionLabel) {
+      if (!__EVENTONE__[actionLabel]) // check actionLabel exist
+         __EVENTONE__[actionLabel] = []; // create if not
 
-    __EVENTONE__[actionLabel][placeDimension].push([callPlace, reactor]); // pushing reactor inside
-    __EVENTONE__[actionLabel][placeDimension].sort((a, b) => a[0] - b[0]); // sorting reactors by callPlace
-  }
+      __EVENTONE__[actionLabel].push([callPlace, reactor]); // pushing reactor inside
+      __EVENTONE__[actionLabel].sort((a, b) => a[0] - b[0]); // sorting reactors by callPlace
+   }
 }
 
-export function globalEventone() {
-  window.__EVENTONE__ = __EVENTONE__;
-  window.action = action;
-  window.when = when;
+function globalEventone(isLog) {
+   window.__EVENTONE__ = __EVENTONE__;
+   window.__EVENTONE__IS_LOG__ = isLog !== undefined ? isLog : __EVENTONE__IS_LOG__;
+   window.action = action;
+   window.when = when;
 }
+
+export {
+   globalEventone,
+   action, when
+};
