@@ -1,4 +1,6 @@
 mixin card-shop(title, imgSrc, href='#')
+   <?php global $glo; ?>
+   - var attach = glo['attach']
    a(href=href).card-shop&attributes(attributes).col.mro5.mbo5.aic
       .card-shop__image.p1
          div(style=`background-image: url('${attach}/Images/Shops/${imgSrc}');`).w100.h100

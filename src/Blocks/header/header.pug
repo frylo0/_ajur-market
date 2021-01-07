@@ -1,5 +1,7 @@
 mixin header()
    .header.row.jcsb.p1o25&attributes(attributes)
+      <?php global $glo; ?>
+      - var attach = glo['attach']
       +logo('full')
       .row.aic
          .rel.mro75.header__cart-wrapper

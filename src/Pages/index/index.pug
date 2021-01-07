@@ -4,6 +4,8 @@ include ../../Blocks/card-product/card-product.pug
 include ../../Blocks/card-shop/card-shop.pug
 include ../../Blocks/how-work-block/how-work-block.pug
 
+- glo = { attach: attach }
+
 <!DOCTYPE html>
 html(lang="en")
    head
@@ -13,10 +15,10 @@ html(lang="en")
       title Title
       link(rel="stylesheet" href=`${link}.css?ver=${ver}`)
    body
-      +devicer().rel
+      +devicer(glo).rel
          +menu()
          +header()
-         +search()
+         +search(glo['attach'])
          section
             .row.wrap.p1o25.pro75.pbo5
                +card-shop('PUMA', 'puma.jpg')

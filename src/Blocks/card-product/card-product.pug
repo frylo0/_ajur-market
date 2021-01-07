@@ -1,4 +1,6 @@
 mixin card-product(title, imageSrc, price, href='#')
+   <?php global $glo; ?>
+   - var attach = glo['attach']
    .card-product.row&attributes(attributes)
       .card-product__image.rel(style=`background-image: url('${attach}/Images/Products/${imageSrc}')`)
       .card-product__main-part.col.pto5.pbo25

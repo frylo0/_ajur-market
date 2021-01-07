@@ -11,8 +11,8 @@ include_once __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/php/ORM.php';
 
 require_once './php/orm.config.php';
-$orm->table_prefix = 'jf-cms_';
-$orm->is_log = true;
+//$orm->table_prefix = 'jf-cms_';
+//$orm->is_log = true;
 
 Phug::addExtension(JsPhpizePhug::class);
 Phug::setOption('debug', false); // remove debug and performance info from output file
@@ -37,7 +37,7 @@ foreach (glob('./src/Pages/*', GLOB_ONLYDIR) as $dir) {
 
 echo "\n";
 
-$orm->close();
+//$orm->close();
 
 
 

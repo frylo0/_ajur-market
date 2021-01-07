@@ -33,4 +33,4 @@ $options = [
 ];
 Phug::displayFile("./src/Pages/{$page_name}/{$page_name}.pug", $variables, $options);
 
-$orm->close();
+//$orm->close();
